@@ -12,10 +12,14 @@ use App\Http\Livewire\Profile;
 use App\Http\Livewire\Tables;
 use App\Http\Livewire\StaticSignIn;
 use App\Http\Livewire\StaticSignUp;
-use App\Http\Livewire\Rtl;
-
+use App\Http\Livewire\EditUser;
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
+
+use App\Http\Livewire\RolePermission;
+use App\Http\Livewire\EditRole;
+use App\Http\Livewire\Clerance;
+use App\Http\Livewire\AllRequests;
 
 use Illuminate\Http\Request;
 
@@ -31,12 +35,10 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', Login::class)->name('login');
-
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');
 
 Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
- 
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
 Route::middleware('auth')->group(function () {
@@ -46,8 +48,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/tables', Tables::class)->name('tables');
     Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
     Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');
-    Route::get('/rtl', Rtl::class)->name('rtl');
     Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
-    Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
+    Route::get('/user-management', UserManagement::class)->name('user-management')->middleware('can:manage-user');
+    Route::get('/role-permission', RolePermission::class)->name('role-permission')->middleware('can:manage-roles');
+    Route::get('role-edit/{id}', EditRole::class)->name('edit-role')->middleware('can:manage-roles');
+    Route::get('/edit-user/{id}', EditUser::class)->name('edit-user')->middleware('can:update-user');
+    Route::get('/request/clerance', Clerance::class)->name('request.clerance');
+    Route::get('all-requests', AllRequests::class)->name('requests')->middleware('can:sing-clerance');
 });
 

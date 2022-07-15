@@ -7,7 +7,7 @@
         <div class="row gx-4">
             <div class="col-auto">
                 <div class="avatar avatar-xl position-relative">
-                    <img src="../assets/img/bruce-mars.jpg" alt="..." class="w-100 border-radius-lg shadow-sm">
+                    <img src="{{ 'storage/public'.auth()->user()->profile }}" alt="..." class="w-100 border-radius-lg shadow-sm">
                     <a href="javascript:;"
                         class="btn btn-sm btn-icon-only bg-gradient-light position-absolute bottom-0 end-0 mb-n2 me-n2">
                         <i class="fa fa-pen top-0" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -18,7 +18,7 @@
             <div class="col-auto my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
-                        Alec Thompson
+                        {{auth()->user()->name}}
                     </h5>
                     <p class="mb-0 font-weight-bold text-sm">
                         CEO / Co-Founder
@@ -108,7 +108,7 @@
                                         </g>
                                     </g>
                                 </svg>
-                                <span class="ms-1">Projects</span>
+                                <span class="ms-1">Photos</span>
                             </a>
                         </li>
                     </ul>
@@ -196,20 +196,18 @@
                 </div>
                 <div class="card-body p-3">
                     <p class="text-sm">
-                        Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally
-                        difficult paths, choose the one more painful in the short term (pain avoidance is creating an
-                        illusion of equality).
+                        {{ auth()->user()->about }}
                     </p>
                     <hr class="horizontal gray-light my-4">
                     <ul class="list-group">
                         <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full
-                                Name:</strong> &nbsp; Alec M. Thompson</li>
+                                Name:</strong> &nbsp; {{auth()->user()->anme}}</li>
                         <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong>
-                            &nbsp; (44) 123 1234 123</li>
+                            &nbsp; {{auth()->user()->phone}}</li>
                         <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong>
-                            &nbsp; alecthompson@mail.com</li>
+                            &nbsp; {{auth()->user()->email}}</li>
                         <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong>
-                            &nbsp; USA</li>
+                            &nbsp; {{auth()->user()->location}}</li>
                         <li class="list-group-item border-0 ps-0 pb-0">
                             <strong class="text-dark text-sm">Social:</strong> &nbsp;
                             <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
@@ -305,38 +303,12 @@
                                     </a>
                                 </div>
                                 <div class="card-body px-1 pb-0">
-                                    <p class="text-gradient text-dark mb-2 text-sm">Project #2</p>
+                                    
                                     <a href="javascript:;">
                                         <h5>
-                                            Modern
+                                            Styles
                                         </h5>
                                     </a>
-                                    <p class="mb-4 text-sm">
-                                        As Uber works through a huge amount of internal management turmoil.
-                                    </p>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View
-                                            Project</button>
-                                        <div class="avatar-group mt-2">
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="Elena Morison">
-                                                <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -349,38 +321,12 @@
                                     </a>
                                 </div>
                                 <div class="card-body px-1 pb-0">
-                                    <p class="text-gradient text-dark mb-2 text-sm">Project #1</p>
+                                    
                                     <a href="javascript:;">
                                         <h5>
                                             Scandinavian
                                         </h5>
                                     </a>
-                                    <p class="mb-4 text-sm">
-                                        Music is something that every person has his or her own specific opinion about.
-                                    </p>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View
-                                            Project</button>
-                                        <div class="avatar-group mt-2">
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="Elena Morison">
-                                                <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -393,38 +339,11 @@
                                     </a>
                                 </div>
                                 <div class="card-body px-1 pb-0">
-                                    <p class="text-gradient text-dark mb-2 text-sm">Project #3</p>
                                     <a href="javascript:;">
                                         <h5>
                                             Minimalist
                                         </h5>
                                     </a>
-                                    <p class="mb-4 text-sm">
-                                        Different people have different taste, and various types of music.
-                                    </p>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View
-                                            Project</button>
-                                        <div class="avatar-group mt-2">
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="Elena Morison">
-                                                <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -433,7 +352,7 @@
                                 <div class="card-body d-flex flex-column justify-content-center text-center">
                                     <a href="javascript:;">
                                         <i class="fa fa-plus text-secondary mb-3"></i>
-                                        <h5 class=" text-secondary"> New project </h5>
+                                        <h5 class=" text-secondary"> New photo </h5>
                                     </a>
                                 </div>
                             </div>

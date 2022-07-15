@@ -11,10 +11,14 @@ class SignUp extends Component
     public $name = '';
     public $email = '';
     public $password = '';
+    public $username = '';
+    public $phone = '';
 
     protected $rules = [
         'name' => 'required|min:3',
-        'email' => 'required|email:rfc,dns|unique:users',
+        'username' => 'required|min:5|unique:users',
+        'phone' => 'required|numeric|digits:10',
+        'email' => 'required|email|unique:users',
         'password' => 'required|min:6'
     ];
 
@@ -28,9 +32,12 @@ class SignUp extends Component
         $this->validate();
         $user = User::create([
             'name' => $this->name,
+            'phone' => $this->phone,
+            'username' => $this->username,
             'email' => $this->email,
             'password' => Hash::make($this->password)
         ]);
+        $user->givePermissionTo('request-clereance');
 
         auth()->login($user);
 

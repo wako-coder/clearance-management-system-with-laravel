@@ -12,7 +12,7 @@ class Login extends Component
     public $remember_me = false;
 
     protected $rules = [
-        'email' => 'required|email:rfc,dns',
+        'email' => 'required|email',
         'password' => 'required',
     ];
 
@@ -20,7 +20,6 @@ class Login extends Component
         if(auth()->user()){
             redirect('/dashboard');
         }
-        $this->fill(['email' => 'admin@softui.com', 'password' => 'secret']);
     }
 
     public function login() {
